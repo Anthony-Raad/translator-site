@@ -26,7 +26,6 @@ const targetSelect = document.querySelector("#targetLanguage");
 const sourceText = document.querySelector("#sourceText");
 const form = document.querySelector("#translatorForm");
 const output = document.querySelector("#translationOutput");
-const translateButton = document.querySelector("#translateButton");
 const micButton = document.querySelector("#micButton");
 const copyButton = document.querySelector("#copyButton");
 const speakButton = document.querySelector("#speakButton");
@@ -76,9 +75,7 @@ function setMessage(text = "", type = "") {
 }
 
 function setLoading(isLoading) {
-  if (translateButton) {
-    translateButton.disabled = isLoading;
-  }
+  // No dedicated translate button in this design.
 }
 
 function setOutput(text, metadata = {}) {
