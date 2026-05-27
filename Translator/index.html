@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Translator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <h1 id="app-title">Language Translator</h1>
+          </div>
+        </header>
+
+        <form class="translator-grid" id="translatorForm">
+          <section class="panel source-panel">
+            <div class="panel-head">
+              <div>
+                <p class="panel-kicker">Source</p>
+                <select id="sourceLanguage" name="sourceLanguage" aria-label="Source language"></select>
+              </div>
+            </div>
+
+            <label class="sr-only" for="sourceText">Text to translate</label>
+            <textarea id="sourceText" name="sourceText" maxlength="5000" placeholder="Type or speak to translate"></textarea>
+
+            <div class="panel-foot">
+              <span id="characterCount">0 / 5000</span>
+              <div class="input-actions">
+                <button class="icon-button" id="micButton" type="button" aria-label="Speak to translate" title="Speak to translate">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 17.5a4 4 0 0 0 4-4V6.5a4 4 0 0 0-8 0v7a4 4 0 0 0 4 4z"></path>
+                    <path d="M8 13.5h8"></path>
+                    <path d="M12 17.5v4"></path>
+                    <path d="M9 21.5h6"></path>
+                  </svg>
+                </button>
+                <button class="icon-button" id="clearButton" type="button" aria-label="Clear text" title="Clear text">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 6l12 12"></path>
+                    <path d="M18 6L6 18"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <div class="swap-container">
+            <button class="icon-button swap-button" id="swapButton" type="button" aria-label="Swap languages" title="Swap languages">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 7 4 11l4 4"></path>
+                <path d="M4 11h16"></path>
+                <path d="M16 7l4 4-4 4"></path>
+              </svg>
+            </button>
+          </div>
+
+          <section class="panel result-panel">
+            <div class="panel-head">
+              <div>
+                <p class="panel-kicker">Target</p>
+                <select id="targetLanguage" name="targetLanguage" aria-label="Target language"></select>
+              </div>
+            </div>
+
+            <output class="translation-output" id="translationOutput" for="sourceText sourceLanguage targetLanguage">
+              <span class="muted">Translated text will appear here.</span>
+            </output>
+
+            <div class="panel-foot">
+              <span id="detectedLanguage"></span>
+              <div class="action-row">
+                <button class="icon-button" id="copyButton" type="button" aria-label="Copy translation" title="Copy translation" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+                <button class="icon-button" id="speakButton" type="button" aria-label="Read translation aloud" title="Read translation aloud" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 5 6 9H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h3l5 4V5Z"></path>
+                    <path d="M15.5 8.5c.914.914 1.5 2.14 1.5 3.5s-.586 2.586-1.5 3.5"></path>
+                    <path d="M18.5 6.5c1.657 1.657 2.5 3.771 2.5 5.999 0 2.228-.843 4.342-2.5 5.999"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </section>
+        </form>
+
+        <div class="message-row">
+          <p class="message" id="messageArea" role="alert" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
